@@ -119,11 +119,12 @@ resource "null_resource" "configure-cat-app" {
     }
   }
 }
-module "network_subnets" {
-  source  = "app.terraform.io/hyunsik-org/network/google//modules/subnets"
+module "network" {
+  source  = "app.terraform.io/hyunsik-org/network/google"
   version = "3.4.0"
   # insert required variables here
-    network_name = "gaurav-network"
-    project_id = var.project
+
+  network_name = "gaurav-network"
+  project_id = var.project
   subnets = var.subnets
 }
